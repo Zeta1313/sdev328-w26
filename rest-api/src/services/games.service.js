@@ -19,3 +19,16 @@ export const getGenres = id => {
     }
     return [];
 }
+
+export const addGame = game => {
+    if (idExists(game.id)) {
+        return false;
+    }
+
+    games.push(game);
+    return true;
+}
+
+function idExists(id) {
+    return games.find(el => el.id === Number(id)) === null;
+}
